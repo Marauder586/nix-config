@@ -115,6 +115,8 @@
         };
       };
 
+      programs.chromium.enable = true;
+
       stylix.targets.firefox = {
         enable = true;
         colorTheme.enable = true;
