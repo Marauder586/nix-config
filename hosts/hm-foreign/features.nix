@@ -12,7 +12,7 @@
   virtualization = false;
   gaming = false;
   localAi = false;
-  tailscale = false;
+  homelab-clients = false;
 
   # ── User features (home-manager) ─────────────────────────
   hyprland = false; # Wayland compositor — GUI, not available headless

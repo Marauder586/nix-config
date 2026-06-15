@@ -84,9 +84,6 @@ in {
     # Content / docs
     hugo
     glow
-
-    # VPN CLI (daemon is in modules/nixos/networking.nix)
-    tailscale
   ];
 
   # ── bat (cat replacement) ─────────────────────────────────

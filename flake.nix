@@ -59,6 +59,7 @@
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = mkArgs featuresFile;
             home-manager.users.marauder = import ./home.nix;
+            home-manager.backupFileExtension = "hm.bak";
           }
         ];
       };
