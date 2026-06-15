@@ -29,5 +29,16 @@
 
     # Networking
     networking.networkmanager.enable = true;
+
+    # Other
+    services.flatpak = {
+      enable = true;
+      packages = [ "com.bambulab.BambuStudio" ];
+
+      # revoke network access to Bambu Studio
+      overrides.files = [
+        ./flatpak-overrides/com.bambulab.BambuStudio
+      ];
+    };
   };
 }

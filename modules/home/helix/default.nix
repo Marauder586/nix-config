@@ -48,7 +48,7 @@
     metals
     nil
     nixfmt-rfc-style
-    nodePackages.prettier
+    prettier
     ocamlPackages.ocaml-lsp
     omnisharp-roslyn
     openscad-lsp
@@ -64,6 +64,7 @@
     taplo
     terraform-ls
     texlab
+    tinymist
     ty
     typescript-language-server
     vscode-langservers-extracted

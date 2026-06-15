@@ -4,7 +4,7 @@
 # speaks any OpenAI-compatible endpoint, MCP servers, agents/, and command/.
 #
 # Companion CLIs installed alongside for variety: aider, goose, crush, codex,
-# plandex, mcphost. Pick whichever fits the task.
+# mcphost. Pick whichever fits the task.
 #
 # Sub-agents and slash-commands are dropped into ~/.config/opencode/ from this
 # module's `agent/`, `command/`, and `skills/` directories. Each personality
@@ -365,7 +365,7 @@
     glow
     shellcheck
     shfmt
-    nodePackages.prettier
+    prettier
     ruff
     black
     mypy
@@ -407,7 +407,6 @@
     aider-chat
     goose-cli
     crush
-    plandex
     mcphost
 
     nodejs_22

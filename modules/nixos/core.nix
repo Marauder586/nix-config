@@ -30,9 +30,14 @@
     wget
   ];
 
+  # ── Containerization Runner ───────────────────────────────
   virtualisation.podman = {
     enable = true;
     dockerCompat = true; # lets oci-containers use the docker CLI shim
   };
   virtualisation.oci-containers.backend = "podman";
+
+  # ── Scren Share Settings  ─────────────────────────────────
+  xdg.portal.enable = true;
+  environment.pathsToLink = [ "/share/xdg-desktop-portal" "/share/applications" ];
 }
