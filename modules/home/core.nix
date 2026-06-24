@@ -84,9 +84,6 @@ in {
     # Content / docs
     hugo
     glow
-
-    # VPN CLI (daemon is in modules/nixos/networking.nix)
-    tailscale
   ];
 
   # ── bat (cat replacement) ─────────────────────────────────
@@ -150,10 +147,10 @@ in {
         # swapping stylix.base16Scheme retints the diff. Foreground stays
         # `syntax` so bat-coloured code keeps its tones. Gutter line numbers
         # use the pure base08 / base0B accents.
-        minus-style = "syntax \"#${mixHex c.base00 c.base08 0.50}\"";
-        minus-emph-style = "bold syntax \"#${mixHex c.base00 c.base08 0.70}\"";
-        plus-style = "syntax \"#${mixHex c.base00 c.base0B 0.50}\"";
-        plus-emph-style = "bold syntax \"#${mixHex c.base00 c.base0B 0.70}\"";
+        minus-style = "syntax \"#${mixHex c.base00 c.base08 0.35}\"";
+        minus-emph-style = "bold syntax \"#${mixHex c.base00 c.base08 0.50}\"";
+        plus-style = "syntax \"#${mixHex c.base00 c.base0B 0.35}\"";
+        plus-emph-style = "bold syntax \"#${mixHex c.base00 c.base0B 0.50}\"";
         line-numbers-minus-style = "bold \"#${c.base08}\"";
         line-numbers-plus-style = "bold \"#${c.base0B}\"";
       };

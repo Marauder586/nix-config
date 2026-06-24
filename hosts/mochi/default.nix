@@ -39,5 +39,13 @@
     shell = pkgs.zsh;
   };
 
-  system.stateVersion = "25.11";
+  # ── Mochi Specific Services ───────────────────────────────
+  services.hardware.openrgb = { 
+    enable = true; 
+    package = pkgs.openrgb-with-all-plugins; 
+    motherboard = "amd"; 
+    server.port = 6742; 
+  };
+
+  system.stateVersion = "26.05";
 }

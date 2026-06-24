@@ -12,7 +12,7 @@
   gaming = false; # no GPU passthrough in guest
   localAi = false; # too resource-heavy for a VM
   remoteAi = true;
-  tailscale = true; # Tailscale VPN daemon
+  homelab-clients = false;
 
   # ── User features (home-manager) ─────────────────────────
   hyprland = true; # Hyprland + Alacritty + Firefox

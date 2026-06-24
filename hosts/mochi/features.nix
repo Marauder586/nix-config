@@ -12,7 +12,7 @@
   gaming = true; # Steam
   localAi = true; # Ollama (Vulkan/AMD) + Open-WebUI
   remoteAi = true; # Claude Code
-  tailscale = true; # Tailscale VPN daemon
+  homelab-clients = true; # Tailscale VPN daemon
 
   # ── User features (home-manager) ─────────────────────────
   hyprland = true; # Hyprland + Alacritty + Firefox

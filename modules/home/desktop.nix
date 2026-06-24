@@ -115,6 +115,8 @@
         };
       };
 
+      programs.chromium.enable = true;
+
       stylix.targets.firefox = {
         enable = true;
         colorTheme.enable = true;
@@ -127,6 +129,7 @@
       home.packages = with pkgs; [
         obsidian
         libreoffice
+        gimp
       ];
 
       dconf.settings."org/gnome/shell" = {

@@ -16,7 +16,7 @@
 
   # username / homeDirectory are injected by flake.nix from $USER / $HOME
   # at switch time, so this config works for any login.
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 
   # Git identity — overrides core.nix defaults for this host
   programs.git.settings.user = lib.mkForce {
