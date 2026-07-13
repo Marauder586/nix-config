@@ -17,6 +17,7 @@
   # ── User features (home-manager) ─────────────────────────
   hyprland = false; # Hyprland + Alacritty + Firefox
   development = true; # Helix + 70+ LSPs + network tooling
+  hacking = true;
   communication = true; # Signal Desktop + Vesktop (Discord)
   monitoring = true; # htop / iotop / sensors / strace / pciutils
   k8sUtil = true; # kubectl + k9s

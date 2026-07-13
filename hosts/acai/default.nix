@@ -26,6 +26,14 @@
   # kvm-amd kernel module is declared in hardware-configuration.nix
   boot.binfmt.emulatedSystems = ["aarch64-linux"];
 
+  # ── Hardware ──────────────────────────────────────────────
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-compute-runtime
+    ];
+  };
+
   # ── Identity ──────────────────────────────────────────────
   networking.hostName = "acai";
 

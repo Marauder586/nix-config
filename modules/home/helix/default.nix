@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   inputs,
   ...
 }:
@@ -11,7 +12,7 @@
   };
 
   # LSP packages used in languages.toml
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
     alejandra
     asm-lsp
     bash-language-server
@@ -48,7 +49,6 @@
     metals
     nil
     nixfmt-rfc-style
-    prettier
     ocamlPackages.ocaml-lsp
     omnisharp-roslyn
     openscad-lsp
@@ -73,7 +73,9 @@
     yamlfmt
     zig
     zls
-  ];
+  ]) ++ (with pkgs-unstable; [
+    prettier # Leaving it in unstable until CVEs are patched
+  ]);
 
   programs.helix = {
     enable = true;

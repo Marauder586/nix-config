@@ -10,6 +10,7 @@
   imports = [
     ../../modules/home/core.nix
     ../../modules/home/development.nix
+    ../../modules/home/hacking.nix
     ../../modules/home/monitoring.nix
     ../../modules/home/k8s.nix
   ];

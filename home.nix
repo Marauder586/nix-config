@@ -10,6 +10,7 @@
     ./modules/home/desktop.nix
     ./modules/home/development.nix
     ./modules/home/gaming.nix
+    ./modules/home/hacking.nix
     ./modules/home/homelab-clients.nix
     ./modules/home/k8s.nix
     ./modules/home/monitoring.nix
