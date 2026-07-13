@@ -65,6 +65,11 @@
       };
   in {
     # ── NixOS systems ──────────────────────────────────────────
+    nixosConfigurations.acai = mkNixosSystem {
+      hostDir = ./hosts/acai;
+      featuresFile = ./hosts/acai/features.nix;
+    };
+
     nixosConfigurations.mochi = mkNixosSystem {
       hostDir = ./hosts/mochi;
       featuresFile = ./hosts/mochi/features.nix;
