@@ -15,7 +15,7 @@
   homelab-clients = true; # Tailscale VPN daemon
 
   # ── User features (home-manager) ─────────────────────────
-  hyprland = true; # Hyprland + Alacritty + Firefox
+  hyprland = false; # Hyprland + Alacritty + Firefox
   development = true; # Helix + 70+ LSPs + network tooling
   communication = true; # Signal Desktop + Vesktop (Discord)
   monitoring = true; # htop / iotop / sensors / strace / pciutils

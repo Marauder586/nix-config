@@ -28,16 +28,16 @@
         ipcalc
         net-tools
         git
-        gnumake
 
         minicom
         dive
 
+        # Tools for building when there is no flake.
         libtool
         autoconf
         automake
         gnum4
-
+        gnumake
       ]) ++ (with pkgs-unstable; [
         # Rust
         rustc

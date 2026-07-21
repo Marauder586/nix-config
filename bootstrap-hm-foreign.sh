@@ -42,7 +42,7 @@ step "Installing Nix..."
 if command -v nix &>/dev/null; then
   warn "Nix already installed — skipping."
 else
-  curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix \
+  curl --proto '=https' --tlsv1.2 -sSf -L https://install.lix.systems/lix \
     | sh -s -- install --no-confirm
 fi
 
@@ -112,7 +112,7 @@ fi
 # single output adapts to whatever login the host happens to use.
 step "Building home-manager config (this will take a while on first run)..."
 nix run github:nix-community/home-manager/release-26.05 -- \
-  switch --flake ~/nixos-config#hm-foreign --impure
+  switch --flake ~/nixos-config#hm-foreign --impure -b backup
 
 # ── Done ─────────────────────────────────────────────────────────────────────
 echo ""

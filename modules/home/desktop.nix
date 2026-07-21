@@ -115,13 +115,15 @@
         };
       };
 
-      programs.chromium.enable = true;
-
       stylix.targets.firefox = {
         enable = true;
         colorTheme.enable = true;
         profileNames = ["default"];
       };
+
+      programs.chromium.enable = true;
+
+      programs.thunderbird.enable = true;
     })
 
     # ── GNOME-only ────────────────────────────────────────────────────
