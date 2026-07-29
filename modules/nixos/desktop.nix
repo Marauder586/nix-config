@@ -29,6 +29,7 @@
 
     # Networking
     networking.networkmanager.enable = true;
+    services.mullvad-vpn.enable = true;
 
     # Other
     services.flatpak = {

@@ -20,6 +20,7 @@
   communication = true; # Signal Desktop + Vesktop (Discord)
   monitoring = true; # htop / iotop / sensors / strace / pciutils
   k8sUtil = true; # kubectl + k9s
+  hacking = false;
 
   # opencode + aider + goose + crush. All personalities on; talks to mochi
   # over QEMU SLIRP for Ollama and ComfyUI.

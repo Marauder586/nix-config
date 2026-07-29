@@ -11,9 +11,6 @@
 ## CLI fallbacks (when MCP isn't available)
 
 ```bash
-# Readable text from an article
-curl -sL "$URL" | python -m trafilatura -u "$URL"
-
 # Quick JSON probe
 xh GET "$URL" Accept:application/json | jq .
 

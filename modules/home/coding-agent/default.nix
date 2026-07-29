@@ -383,7 +383,6 @@
     yt-dlp
     pup
     htmlq
-    python313Packages.trafilatura
     python313Packages.ddgs
   ];
 

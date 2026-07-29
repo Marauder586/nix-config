@@ -54,6 +54,7 @@
     openscad-lsp
     phpactor
     prisma-engines
+    prettier
     pyright
     ruff
     rust-analyzer
@@ -74,7 +75,6 @@
     zig
     zls
   ]) ++ (with pkgs-unstable; [
-    prettier # Leaving it in unstable until CVEs are patched
   ]);
 
   programs.helix = {

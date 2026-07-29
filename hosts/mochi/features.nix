@@ -21,6 +21,7 @@
   monitoring = true; # htop / iotop / sensors / strace / pciutils
   k8sUtil = true; # kubectl + k9s
   comfyui = true; # ComfyUI image / 3D generation service
+  hacking = true;
 
   # opencode + aider + goose + crush. All personalities on; full local stack.
   codingAgent = {

@@ -19,7 +19,6 @@ Tooling preference order:
 3. **`playwright` MCP** — for JS-heavy sites, login flows, or pages that
    `fetch` returns blank for.
 4. **CLI fallbacks** when MCP isn't available:
-   - `curl -sL <url> | trafilatura` — pull main article text.
    - `xh GET <url> Accept:application/json` — JSON APIs.
    - `monolith <url> -o page.html` — full-page archive (single file).
    - `yt-dlp --skip-download --print description <url>` — video metadata.

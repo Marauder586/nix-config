@@ -21,6 +21,7 @@
   monitoring = true; # htop / iotop / strace / pciutils etc. (all terminal)
   remoteAi = false; # Claude Code
   k8sUtil = false; # kubectl + k9s
+  hacking = false;
 
   # opencode + aider + goose + crush wired to Gemini for dev work only —
   # no ComfyUI / OpenSCAD / Blender / MeshLab on a headless foreign-Linux box.
