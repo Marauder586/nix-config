@@ -85,9 +85,9 @@ in {
     hugo
     glow
 
-    # Misc
-    sg3_utils
+    # Video Ripping
     handbrake
+    sg3_utils
   ];
 
   # ── bat (cat replacement) ─────────────────────────────────
@@ -213,7 +213,7 @@ in {
     shellAliases = {
       k = "kubectl";
       shx = "sudoedit";
-      unlock-superdrive = "sg_raw /dev/sr0 EA 00 00 00 00 00 01";
+      unlock-superdrive = "sudo sg_raw /dev/sr0 EA 00 00 00 00 00 01";
     };
     initContent = ''
       eval "$(zellij setup --generate-auto-start zsh)"

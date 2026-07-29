@@ -48,12 +48,11 @@
   };
 
   # ── Acai Specific Services ───────────────────────────────
-  services.hardware.openrgb = { 
-    enable = true; 
-    package = pkgs.openrgb-with-all-plugins; 
-    motherboard = "amd"; 
-    server.port = 6742; 
+  services.xserver = {
+    layout = "us";
+    xkbVariant = "dvorak";
   };
+  console.useXkbConfig = true;
 
   system.stateVersion = "26.05";
 }
