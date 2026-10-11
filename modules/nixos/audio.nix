@@ -1,8 +1,6 @@
-# PipeWire audio stack.
-# Controlled by: features.audio
-{ lib, features, ... }:
-{
-  config = lib.mkIf features.audio {
+# PipeWire audio stack. Importing this is what turns it on for a host.
+{...}: {
+  flake.modules.nixos.audio = {
     services.pulseaudio.enable = false;
     security.rtkit.enable = true;
     services.pipewire = {

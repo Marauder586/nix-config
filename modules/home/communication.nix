@@ -1,10 +1,9 @@
 # Signal Desktop and Vesktop (Discord alternative).
-# Controlled by: features.communication
-{ pkgs, lib, features, ... }:
-{
-  imports = lib.optionals features.communication [ ./vesktop ];
+# Importing this is what turns it on for a host.
+{config, ...}: {
+  flake.modules.homeManager.communication = {pkgs, ...}: {
+    imports = [config.flake.modules.homeManager.vesktop];
 
-  config = lib.mkIf features.communication {
     home.packages = with pkgs; [
       signal-desktop
     ];

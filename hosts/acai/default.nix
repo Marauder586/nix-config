@@ -2,21 +2,13 @@
 # Hardware, boot, hostname, and user account live here.
 # Shared behaviour is in modules/nixos/.
 {
+  config,
   pkgs,
   lib,
-  features,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nixos/core.nix
-    ../../modules/nixos/desktop.nix
-    ../../modules/nixos/audio.nix
-    ../../modules/nixos/virtualization.nix
-    ../../modules/nixos/gaming.nix
-    ../../modules/nixos/ai.nix
-    ../../modules/nixos/comfyui.nix
-    ../../modules/nixos/networking.nix
   ];
 
   # ── Boot ──────────────────────────────────────────────────
@@ -43,7 +35,7 @@
     description = "marauder";
     extraGroups =
       ["networkmanager" "wheel"]
-      ++ lib.optionals features.virtualization ["kvm" "libvirtd"];
+      ++ lib.optionals config.virtualisation.libvirtd.enable ["kvm" "libvirtd"];
     shell = pkgs.zsh;
   };
 

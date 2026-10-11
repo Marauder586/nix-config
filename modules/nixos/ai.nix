@@ -4,18 +4,13 @@
 #      AUDIO_STT_DEVICE to "cuda" once ROCm fully supports gfx1201/RDNA4).
 # TTS: openai-edge-tts container (OpenAI-compatible endpoint, Edge TTS backend).
 #
-# Controlled by: features.localAi
-{
-  lib,
-  features,
-  pkgs-unstable,
-  ...
-}: {
-  config = lib.mkIf features.localAi {
+# Importing this is what turns it on for a host.
+{...}: {
+  flake.modules.nixos.ai = {pkgs, ...}: {
     # ── Ollama ────────────────────────────────────────────────
     services.ollama = {
       enable = true;
-      package = pkgs-unstable.ollama-vulkan; # AMD Vulkan GPU acceleration
+      package = pkgs.unstable.ollama-vulkan; # AMD Vulkan GPU acceleration
       loadModels = [
         "qwen2.5-coder:7b" # primary code model — fits in 9070 XT VRAM
         "llama3.1:8b" # fast general chat

@@ -1,2 +1,5 @@
 flake.lock
 .aider*
+
+# Accidentally downloaded into the repo root — not config, don't track.
+/GLM-5.3-Flash-EXL3-TR3-4bpw/

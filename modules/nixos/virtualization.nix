@@ -1,12 +1,11 @@
 # KVM / QEMU / libvirt virtual machine host support.
 # Also adds the QEMU package to system packages for the firmware symlink.
-# Controlled by: features.virtualization
-{ pkgs, lib, features, ... }:
-{
-  config = lib.mkIf features.virtualization {
+# Importing this is what turns it on for a host.
+{...}: {
+  flake.modules.nixos.virtualization = {pkgs, ...}: {
     virtualisation.libvirtd = {
       enable = true;
-      qemu.swtpm.enable = true;  # virtual TPM — required by Windows 11 VMs
+      qemu.swtpm.enable = true; # virtual TPM — required by Windows 11 VMs
     };
     virtualisation.spiceUSBRedirection.enable = true;
 
@@ -15,6 +14,6 @@
       "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware"
     ];
 
-    environment.systemPackages = [ pkgs.qemu ];
+    environment.systemPackages = [pkgs.qemu];
   };
 }

@@ -1,8 +1,7 @@
 # System monitoring, debugging, and hardware introspection tools.
-# Controlled by: features.monitoring
-{ pkgs, lib, features, ... }:
-{
-  config = lib.mkIf features.monitoring {
+# Importing this is what turns it on for a host.
+{...}: {
+  flake.modules.homeManager.monitoring = {pkgs, ...}: {
     home.packages = with pkgs; [
       # Process / resource monitors
       htop
@@ -16,10 +15,10 @@
 
       # Hardware / kernel stats
       sysstat
-      lm_sensors  # sensors command
+      lm_sensors # sensors command
       ethtool
-      pciutils    # lspci
-      usbutils    # lsusb
+      pciutils # lspci
+      usbutils # lsusb
     ];
   };
 }

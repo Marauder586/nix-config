@@ -19,96 +19,43 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.7.0";
+
+    # uv2nix: builds Python venvs straight from a uv.lock. Used for
+    # pkgs/huggingface-cli, so we get the latest huggingface_hub CLI rather
+    # than whatever nixpkgs happens to have pinned.
+    pyproject-nix = {
+      url = "github:pyproject-nix/pyproject.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    uv2nix = {
+      url = "github:pyproject-nix/uv2nix";
+      inputs.pyproject-nix.follows = "pyproject-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    pyproject-build-systems = {
+      url = "github:pyproject-nix/build-system-pkgs";
+      inputs.pyproject-nix.follows = "pyproject-nix";
+      inputs.uv2nix.follows = "uv2nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # ── Composability ─────────────────────────────────────────
+    # flake-parts: splits this flake's outputs across parts/*.nix instead of
+    # one monolithic `outputs` function — each file contributes whatever
+    # flake attrs it wants (flake.nixosConfigurations, perSystem.packages…).
+    # import-tree: recursively auto-imports every .nix file under a
+    # directory as a module. Used both for parts/ itself (drop a file in
+    # parts/, it's wired in) and for modules/nixos + modules/home (drop a
+    # module there, every host picks it up — behaviour is then controlled
+    # purely by hosts/*/features.nix, not by hand-maintained import lists).
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:denful/import-tree";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixpkgs-unstable,
-    nix-flatpak,
-    home-manager,
+  outputs = inputs @ {
+    flake-parts,
+    import-tree,
     ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    pkgs-unstable = import nixpkgs-unstable {
-      inherit system;
-      config.allowUnfree = true;
-    };
-
-    # Build specialArgs/extraSpecialArgs for a given host features file
-    mkArgs = featuresFile: {
-      inherit inputs pkgs-unstable;
-      features = import featuresFile;
-    };
-
-    # Build a NixOS system with stylix + home-manager wired in
-    mkNixosSystem = {
-      hostDir,
-      featuresFile,
-    }:
-      nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = mkArgs featuresFile;
-        modules = [
-          hostDir
-          nix-flatpak.nixosModules.nix-flatpak
-          inputs.stylix.nixosModules.stylix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = mkArgs featuresFile;
-            home-manager.users.marauder = import ./home.nix;
-            home-manager.backupFileExtension = "hm.bak";
-          }
-        ];
-      };
-  in {
-    # ── NixOS systems ──────────────────────────────────────────
-    nixosConfigurations.acai = mkNixosSystem {
-      hostDir = ./hosts/acai;
-      featuresFile = ./hosts/acai/features.nix;
-    };
-
-    nixosConfigurations.mochi = mkNixosSystem {
-      hostDir = ./hosts/mochi;
-      featuresFile = ./hosts/mochi/features.nix;
-    };
-
-    nixosConfigurations.mochi-guest = mkNixosSystem {
-      hostDir = ./hosts/mochi-guest;
-      featuresFile = ./hosts/mochi-guest/features.nix;
-    };
-
-    # ── Non-NixOS homes (home-manager standalone) ──────────────
-    # Foreign = any non-NixOS Linux (Debian/Ubuntu/WSL/etc.) running Nix as
-    # a package manager with home-manager on top.
-    #
-    # Username and home directory are read from $USER / $HOME at switch
-    # time so a single output works for any login (marauder, ubuntu, debian,
-    # nick, …). This requires --impure because pure-eval can't read env.
-    #
-    # Rebuild: home-manager switch --flake .#hm-foreign --impure
-    homeConfigurations.hm-foreign = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      extraSpecialArgs = mkArgs ./hosts/hm-foreign/features.nix;
-      modules = [
-        inputs.stylix.homeManagerModules.stylix
-        ./hosts/hm-foreign/home.nix
-        ({...}: let
-          user = builtins.getEnv "USER";
-          home = builtins.getEnv "HOME";
-        in {
-          home.username =
-            if user != ""
-            then user
-            else throw "USER env var is empty — re-run with --impure from an interactive shell.";
-          home.homeDirectory =
-            if home != ""
-            then home
-            else throw "HOME env var is empty — re-run with --impure from an interactive shell.";
-        })
-      ];
-    };
-  };
+  }:
+    flake-parts.lib.mkFlake {inherit inputs;} (import-tree ./parts);
 }

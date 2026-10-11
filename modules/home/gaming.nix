@@ -1,12 +1,6 @@
-# Gaming Launchers.
-# Controlled by: features.gaming
-{
-  pkgs,
-  lib,
-  features,
-  ...
-}: {
-  config = lib.mkIf features.gaming {
+# Gaming launchers. Importing this is what turns it on for a host.
+{...}: {
+  flake.modules.homeManager.gaming = {pkgs, ...}: {
     home.packages = with pkgs; [
       prismlauncher
     ];

@@ -1,12 +1,6 @@
-# Kubernetes utilities.
-# Controlled by: features.k8sUtil
-{
-  pkgs,
-  lib,
-  features,
-  ...
-}: {
-  config = lib.mkIf features.k8sUtil {
+# Kubernetes utilities. Importing this is what turns it on for a host.
+{...}: {
+  flake.modules.homeManager.k8s = {pkgs, ...}: {
     home.packages = with pkgs; [
       skopeo
       kubectl

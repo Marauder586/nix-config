@@ -1,12 +1,11 @@
 # GNOME desktop environment, X11, Stylix theming, printing.
-# Controlled by: features.desktop
-{
-  pkgs,
-  lib,
-  features,
-  ...
-}: {
-  config = lib.mkIf features.desktop {
+# Importing this is what turns GNOME on for a host — no separate flag.
+{...}: {
+  flake.modules.nixos.desktop = {
+    pkgs,
+    lib,
+    ...
+  }: {
     # Display server + desktop environment
     services.xserver.enable = true;
     services.displayManager.gdm.enable = true;
@@ -30,6 +29,11 @@
     # Networking
     networking.networkmanager.enable = true;
     services.mullvad-vpn.enable = true;
+
+    # GNOME's screencast/screenshare portal backend — merges into
+    # modules/nixos/core.nix's xdg.portal.extraPortals list.
+    xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gnome];
+    xdg.portal.config.gnome.default = ["gnome" "gtk"];
 
     # Other
     services.flatpak = {
