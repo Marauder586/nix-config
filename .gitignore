@@ -1,4 +1,3 @@
-flake.lock
 .aider*
 
 # Accidentally downloaded into the repo root — not config, don't track.
