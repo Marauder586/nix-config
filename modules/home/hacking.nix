@@ -12,6 +12,13 @@
 
       # Password cracking
       hashcat
+
+      # RE
+      radare2
+      gdb
+      pwntools
+      ghidra
+      python313Packages.ropper
     ];
   };
 }

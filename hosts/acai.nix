@@ -18,6 +18,7 @@
       config.flake.modules.nixos.audio
       config.flake.modules.nixos.gaming
       config.flake.modules.nixos.networking
+      config.flake.modules.nixos.nix-ld
 
       inputs.nix-flatpak.nixosModules.nix-flatpak
       inputs.stylix.nixosModules.stylix
@@ -40,6 +41,7 @@
             config.flake.modules.homeManager.modeling
             config.flake.modules.homeManager.hacking
             config.flake.modules.homeManager.homelab-clients
+            config.flake.modules.homeManager.remote-ai
           ];
           home.username = "marauder";
           home.homeDirectory = "/home/marauder";
