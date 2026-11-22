@@ -23,6 +23,7 @@
       config.flake.modules.nixos.networking
 
       inputs.nix-flatpak.nixosModules.nix-flatpak
+      inputs.ttlcd.nixosModules.default
       inputs.stylix.nixosModules.stylix
       inputs.home-manager.nixosModules.home-manager
       {

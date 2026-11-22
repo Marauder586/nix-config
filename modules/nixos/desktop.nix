@@ -35,6 +35,17 @@
     xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gnome];
     xdg.portal.config.gnome.default = ["gnome" "gtk"];
 
+    # Electron apps (Vesktop, etc.) only use the portal+PipeWire screen
+    # capture path — instead of falling back to an XWayland/X11 capturer
+    # that can't see a Wayland compositor's output — when NIXOS_OZONE_WL is
+    # present in their environment. Setting this via home-manager's
+    # `home.sessionVariables` is not enough on GDM: that only lands in
+    # ~/.profile, which is sourced by login shells, not by apps GNOME Shell
+    # launches directly from a .desktop file. Setting it here instead goes
+    # into /etc/set-environment, which PAM applies to the whole GDM session
+    # before systemd --user starts, so GUI-launched apps see it too.
+    environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
     # Other
     services.flatpak = {
       enable = true;

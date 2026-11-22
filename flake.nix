@@ -20,6 +20,11 @@
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.7.0";
 
+    # ttlcd: daemon + web UI for the Thermaltake USB LCD panel on mochi.
+    # Deliberately not following our nixpkgs: its build needs the exact
+    # wasm-bindgen-cli version its own lock file pins.
+    ttlcd.url = "github:Marauder586/ttlcd-linux";
+
     # uv2nix: builds Python venvs straight from a uv.lock. Used for
     # pkgs/huggingface-cli, so we get the latest huggingface_hub CLI rather
     # than whatever nixpkgs happens to have pinned.
