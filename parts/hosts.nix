@@ -8,6 +8,7 @@
   imports = [
     ../hosts/mochi.nix
     ../hosts/acai.nix
+    ../hosts/cherry.nix
     ../hosts/mochi-guest.nix
     ../hosts/hm-foreign.nix
     ../hosts/jetson-hm-foreign.nix
