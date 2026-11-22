@@ -29,12 +29,26 @@
   # backend, so give it the default to silence the evaluation warning.
   xdg.portal.config.common.default = "*";
 
+  # ── SSH ───────────────────────────────────────────────────
+  # Key-only login; no root. Port 22 is opened in the firewall automatically.
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      PermitRootLogin = "no";
+    };
+  };
+
   # ── Users ─────────────────────────────────────────────────
   users.users.marauder = {
     isNormalUser = true;
     description = "marauder";
     extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGi87X3X6FoVzXuq4yc4x6Jk4qiMGuQDGMX7h/952ILN marauder@acai"
+    ];
   };
 
   system.stateVersion = "26.05";

@@ -15,6 +15,7 @@
       {nixpkgs.overlays = [config.flake.overlays.unstable];} # pkgs.unstable.claude-code
 
       config.flake.modules.nixos.core
+      config.flake.modules.nixos.networking # tailscaled, for SSH over the tailnet
 
       # Stylix is required even without a desktop: homeManager.core reads
       # config.lib.stylix.colors for the delta diff theme. The scheme is set
@@ -33,6 +34,7 @@
             # rather than the whole `development` toolchain.
             config.flake.modules.homeManager.helix
             config.flake.modules.homeManager.remote-ai
+            config.flake.modules.homeManager.homelab-clients
           ];
           home.username = "marauder";
           home.homeDirectory = "/home/marauder";
