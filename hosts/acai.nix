@@ -1,5 +1,5 @@
 # acai — physical Intel workstation. GNOME desktop, audio, gaming,
-# homelab clients. No local AI, no virtualization host, no Claude Code.
+# homelab clients. No local AI, no virtualization host.
 # Rebuild: sudo nixos-rebuild switch --flake .#acai
 {
   inputs,
@@ -42,6 +42,7 @@
             config.flake.modules.homeManager.hacking
             config.flake.modules.homeManager.homelab-clients
             config.flake.modules.homeManager.remote-ai
+            config.flake.modules.homeManager.pi-agent
           ];
           home.username = "marauder";
           home.homeDirectory = "/home/marauder";

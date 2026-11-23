@@ -31,6 +31,7 @@
             config.flake.modules.homeManager.core
             config.flake.modules.homeManager.development
             config.flake.modules.homeManager.remote-ai
+            config.flake.modules.homeManager.pi-agent
             config.flake.modules.homeManager.communication
             config.flake.modules.homeManager.desktop-apps
             config.flake.modules.homeManager.desktop

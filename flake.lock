@@ -1,5 +1,38 @@
 {
   "nodes": {
+    "agent-harness": {
+      "inputs": {
+        "caveman": "caveman",
+        "claude-plugins-official": "claude-plugins-official",
+        "flake-parts": "flake-parts",
+        "hindsight-coding-agents": "hindsight-coding-agents",
+        "home-manager": "home-manager",
+        "impeccable": "impeccable",
+        "import-tree": "import-tree",
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ],
+        "pi-claude-bridge": "pi-claude-bridge",
+        "pi-mcp-adapter": "pi-mcp-adapter",
+        "pi-subagents": "pi-subagents",
+        "rea-agents": "rea-agents",
+        "rpiv-ask-user-question": "rpiv-ask-user-question",
+        "rpiv-config": "rpiv-config"
+      },
+      "locked": {
+        "lastModified": 1795465532,
+        "narHash": "sha256-xG3JXYdKhLUIIdnhmfUrIh98yh3e7CQ5hKDmMqUHcOc=",
+        "owner": "Marauder586",
+        "repo": "agent-harness",
+        "rev": "6252e5ddd6f1799fdcd4df38fbd06e34f7bc5596",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Marauder586",
+        "repo": "agent-harness",
+        "type": "github"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -84,6 +117,39 @@
         "type": "github"
       }
     },
+    "caveman": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1795329457,
+        "narHash": "sha256-hGYcJ7r2O/uEAmAfpox7Owht4LN8Rk2kn1y8BSMWpFk=",
+        "owner": "JuliusBrussee",
+        "repo": "caveman",
+        "rev": "70f4f34e834893ea9af9f4fc6022266bd56d18b1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "JuliusBrussee",
+        "ref": "v4.2.0",
+        "repo": "caveman",
+        "type": "github"
+      }
+    },
+    "claude-plugins-official": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1795223871,
+        "narHash": "sha256-tG21jUglH8pac5VSDZN7f68vCwThl3GkBOnxz9T9VyE=",
+        "owner": "anthropics",
+        "repo": "claude-plugins-official",
+        "rev": "73c8cf3ea7e296057b467990f2f5d61b4c922260",
+        "type": "github"
+      },
+      "original": {
+        "owner": "anthropics",
+        "repo": "claude-plugins-official",
+        "type": "github"
+      }
+    },
     "firefox-addons": {
       "inputs": {
         "nixpkgs": [
@@ -141,6 +207,24 @@
       }
     },
     "flake-parts_2": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib_2"
+      },
+      "locked": {
+        "lastModified": 1793576659,
+        "narHash": "sha256-V1h85lUaJBQoHFrB2vpXZOE0Ju1MYSnIpsehoVZYlDo=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "ea2630b7470978622c7689a1ff75d2b389175399",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_3": {
       "inputs": {
         "nixpkgs-lib": [
           "stylix",
@@ -232,7 +316,41 @@
         "type": "github"
       }
     },
+    "hindsight-coding-agents": {
+      "flake": false,
+      "locked": {
+        "lastModified": 499162500,
+        "narHash": "sha256-zuYTNIDn5XCuSnJjDKxpupjE440Hqw1YrPztLFDfA1s=",
+        "type": "tarball",
+        "url": "https://registry.npmjs.org/@vectorize-io/hindsight-coding-agents/-/hindsight-coding-agents-0.8.8.tgz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://registry.npmjs.org/@vectorize-io/hindsight-coding-agents/-/hindsight-coding-agents-0.8.8.tgz"
+      }
+    },
     "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "agent-harness",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795366757,
+        "narHash": "sha256-Tp4Kh4R7ID1f2mMCDlb2PiFQ/DZZsnXB2u2juWN+TT4=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "3b8140d21fa0a70b1b38c2ed29853dfe686234a6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "home-manager_2": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
@@ -253,7 +371,39 @@
         "type": "github"
       }
     },
+    "impeccable": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1795039099,
+        "narHash": "sha256-vtmRhNPnX974JYvn5BKXeJ1JpBusS/0O57zTPVxbJPg=",
+        "owner": "pbakaus",
+        "repo": "impeccable",
+        "rev": "b49177d32788f2dc585c42831d845dacf1ebed2c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pbakaus",
+        "ref": "skill-v4.10.0",
+        "repo": "impeccable",
+        "type": "github"
+      }
+    },
     "import-tree": {
+      "locked": {
+        "lastModified": 1788467110,
+        "narHash": "sha256-ljEMTXP/rH0tOvDzc9gzwww6KcHRPRnEHzd9lK48V7s=",
+        "owner": "denful",
+        "repo": "import-tree",
+        "rev": "eb1b52eaecc57f7c136d07ae8a93e724dfecac46",
+        "type": "github"
+      },
+      "original": {
+        "owner": "denful",
+        "repo": "import-tree",
+        "type": "github"
+      }
+    },
+    "import-tree_2": {
       "locked": {
         "lastModified": 1788467110,
         "narHash": "sha256-ljEMTXP/rH0tOvDzc9gzwww6KcHRPRnEHzd9lK48V7s=",
@@ -271,7 +421,7 @@
     "nix-colors": {
       "inputs": {
         "base16-schemes": "base16-schemes",
-        "nixpkgs-lib": "nixpkgs-lib_2"
+        "nixpkgs-lib": "nixpkgs-lib_3"
       },
       "locked": {
         "lastModified": 1707825078,
@@ -335,6 +485,21 @@
       }
     },
     "nixpkgs-lib_2": {
+      "locked": {
+        "lastModified": 1793504054,
+        "narHash": "sha256-ThkfL3D/FhCiZFc9+3BtxwuMmpuK+/bGtXCSo1+yVew=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "7851ba61fd862b277cb6a9cef37394bc18bb94e4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
+    "nixpkgs-lib_3": {
       "locked": {
         "lastModified": 1697935651,
         "narHash": "sha256-qOfWjQ2JQSQL15KLh6D7xQhx0qgZlYZTYlcEiRuAMMw=",
@@ -438,6 +603,49 @@
         "type": "github"
       }
     },
+    "pi-claude-bridge": {
+      "flake": false,
+      "locked": {
+        "lastModified": 499162500,
+        "narHash": "sha256-rXlQ1J2I2PTWedVcjAyqYbhdEjTvLY8c5/JlGAkbRf8=",
+        "type": "tarball",
+        "url": "https://registry.npmjs.org/pi-claude-bridge/-/pi-claude-bridge-0.11.0.tgz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://registry.npmjs.org/pi-claude-bridge/-/pi-claude-bridge-0.11.0.tgz"
+      }
+    },
+    "pi-mcp-adapter": {
+      "flake": false,
+      "locked": {
+        "lastModified": 499162500,
+        "narHash": "sha256-FK1UY6zcCCqYLMKSJESq7DJQQtgWVUp5lJfBOnd+2KU=",
+        "type": "tarball",
+        "url": "https://registry.npmjs.org/pi-mcp-adapter/-/pi-mcp-adapter-7.0.1.tgz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://registry.npmjs.org/pi-mcp-adapter/-/pi-mcp-adapter-7.0.1.tgz"
+      }
+    },
+    "pi-subagents": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1789719144,
+        "narHash": "sha256-Z95FzKiENUM8BsmkW3uiBNY97/+DTCaa94wA2XCAMcI=",
+        "owner": "edxeth",
+        "repo": "pi-subagents",
+        "rev": "cf6dbf41c17986f3882e6804a68e8fb8282d25e6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edxeth",
+        "ref": "v2.9.2",
+        "repo": "pi-subagents",
+        "type": "github"
+      }
+    },
     "pyproject-build-systems": {
       "inputs": {
         "nixpkgs": [
@@ -484,13 +692,27 @@
         "type": "github"
       }
     },
+    "rea-agents": {
+      "flake": false,
+      "locked": {
+        "lastModified": 499162500,
+        "narHash": "sha256-C4iPchmp1pFVe7eCRJZoatRPHe08yp5T09DsAAjJbPk=",
+        "type": "tarball",
+        "url": "https://registry.npmjs.org/rea-agents/-/rea-agents-6.10.1.tgz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://registry.npmjs.org/rea-agents/-/rea-agents-6.10.1.tgz"
+      }
+    },
     "root": {
       "inputs": {
+        "agent-harness": "agent-harness",
         "firefox-addons": "firefox-addons",
-        "flake-parts": "flake-parts",
+        "flake-parts": "flake-parts_2",
         "helix": "helix",
-        "home-manager": "home-manager",
-        "import-tree": "import-tree",
+        "home-manager": "home-manager_2",
+        "import-tree": "import-tree_2",
         "nix-colors": "nix-colors",
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs_2",
@@ -500,6 +722,32 @@
         "stylix": "stylix",
         "ttlcd": "ttlcd",
         "uv2nix": "uv2nix"
+      }
+    },
+    "rpiv-ask-user-question": {
+      "flake": false,
+      "locked": {
+        "lastModified": 499162500,
+        "narHash": "sha256-bHq4BM1Iib60+ta2Zrjnih445KUddAXNfGJwKRKOx1Q=",
+        "type": "tarball",
+        "url": "https://registry.npmjs.org/@juicesharp/rpiv-ask-user-question/-/rpiv-ask-user-question-2.15.0.tgz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://registry.npmjs.org/@juicesharp/rpiv-ask-user-question/-/rpiv-ask-user-question-2.15.0.tgz"
+      }
+    },
+    "rpiv-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 499162500,
+        "narHash": "sha256-Z7QC661n6pbbY5J1/KuXqmagYMox6j96PYaX/bg4xRA=",
+        "type": "tarball",
+        "url": "https://registry.npmjs.org/@juicesharp/rpiv-config/-/rpiv-config-2.15.0.tgz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://registry.npmjs.org/@juicesharp/rpiv-config/-/rpiv-config-2.15.0.tgz"
       }
     },
     "rust-overlay": {
@@ -551,7 +799,7 @@
         "base16-helix": "base16-helix",
         "base16-vim": "base16-vim",
         "firefox-gnome-theme": "firefox-gnome-theme",
-        "flake-parts": "flake-parts_2",
+        "flake-parts": "flake-parts_3",
         "gnome-shell": "gnome-shell",
         "nixpkgs": "nixpkgs_3",
         "nur": "nur",

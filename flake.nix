@@ -44,6 +44,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Sandboxed coding-agent harnesses (Pi) with shared skills, run inside
+    # OpenShell. Used by modules/home/pi-agent.nix. Follows unstable: the
+    # harness CLIs and openshell need current versions.
+    agent-harness = {
+      url = "github:Marauder586/agent-harness";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     # ── Composability ─────────────────────────────────────────
     # flake-parts: splits this flake's outputs across parts/*.nix instead of
     # one monolithic `outputs` function — each file contributes whatever

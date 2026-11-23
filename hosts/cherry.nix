@@ -34,6 +34,7 @@
             # rather than the whole `development` toolchain.
             config.flake.modules.homeManager.helix
             config.flake.modules.homeManager.remote-ai
+            config.flake.modules.homeManager.pi-agent
             config.flake.modules.homeManager.homelab-clients
           ];
           home.username = "marauder";
