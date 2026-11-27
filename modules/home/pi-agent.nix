@@ -4,9 +4,9 @@
 # login, so no credential enters the sandbox. agent-harness also runs the
 # OpenShell gateway (user service `openshell-gateway`), loads the project's
 # dev shell (.envrc/flake) into the sandbox, and keeps sandboxed sessions.
-{inputs, ...}: {
+{ inputs, ... }: {
   flake.modules.homeManager.pi-agent = {
-    imports = [inputs.agent-harness.modules.homeManager.agent-harness];
+    imports = [ inputs.agent-harness.modules.homeManager.agent-harness ];
 
     programs.agent-harness = {
       openshell.engine = "podman";
@@ -21,43 +21,66 @@
           "caveman"
           "reverse-engineer-anything"
         ];
-        extensions = ["ws-edit" "mcp-adapter" "subagents" "ask-user-question"];
-        mcpServers = ["playwright" "rea"];
+        extensions = [
+          "ws-edit"
+          "mcp-adapter"
+          "subagents"
+          "ask-user-question"
+          "turn-timestamp"
+          "superpowers"
+        ];
+        mcpServers = [
+          "playwright"
+          "rea"
+        ];
         host = {
           enable = true;
           command = "pi-unleashed";
-          extensions = ["claude-bridge"];
+          extensions = [ "claude-bridge" ];
         };
       };
 
-      # LLM endpoints (agent-harness README, "LLM providers"). Fill in the
-      # Sparks endpoint and uncomment once it is up.
-      # llm = {
-      #   providers.sparks = {
-      #     displayName = "Sparks";
-      #     baseUrl = "http://<spark-ip>:<port>/v1"; # OpenAI-compatible (vLLM/SGLang)
-      #     apiKeyFile = "/home/marauder/.config/agent-harness/sparks.key"; # or omit: no key
-      #     models = [
-      #       {
-      #         id = "<served model name, e.g. from /v1/models>";
-      #         name = "GLM 5.3";
-      #         reasoning = true;
-      #         contextWindow = <the server's max-model-len>;
-      #         maxTokens = <max output tokens>;
-      #       }
-      #     ];
-      #     # How the server takes the thinking toggle, if Pi's
-      #     # auto-detection gets it wrong:
-      #     # compat.thinkingFormat = "qwen-chat-template";
-      #   };
-      #   default = {
-      #     provider = "sparks";
-      #     model = "<same id as above>";
-      #   };
-      # };
+      llm = {
+        providers.deepadam = {
+          displayName = "DeepAdam";
+          baseUrl = "http://10.50.0.125:8888/v1"; # OpenAI-compatible (vLLM/SGLang)
+          # apiKeyFile = "/home/marauder/.config/agent-harness/sparks.key"; # or omit: no key
+          models = [
+            {
+              id = "GLM-5.3-Flash";
+              name = "GLM 5.3";
+              reasoning = true;
+              contextWindow = 104857;
+              maxTokens = 131072;
+            }
+            {
+              id = "Qwen3.8-Flash-Next";
+              name = "QFN";
+              reasoning = true;
+              contextWindow = 104857;
+              maxTokens = 131072;
+            }
+          ];
+          # How the server takes the thinking toggle, if Pi's
+          # auto-detection gets it wrong:
+          # compat.thinkingFormat = "qwen-chat-template";
+        };
+        default = {
+          provider = "deepadam";
+          model = "Qwen3.8-Flash-Next";
+        };
+      };
 
       # Hindsight memory; the server stays stopped until llm.default is set.
-      hindsight.enable = true;
+      hindsight = {
+        enable = true;
+        maxParallelRetains = 1;
+        dashboard.enable = true;
+        mentalModelRefreshLLMMaxConcurrent = 1;
+        llmMaxConcurrent = 2;
+        workerMaxSlots = 2;
+        workers = 1;
+      };
     };
   };
 }

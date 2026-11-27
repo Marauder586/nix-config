@@ -1,7 +1,6 @@
 # ComfyUI image / 3D generation backend for the mochi host.
 #
-# Runs the ai-dock/comfyui container under podman (matching the existing
-# openai-edge-tts pattern in ai.nix) and exposes the API on
+# Runs the ai-dock/comfyui container under podman and exposes the API on
 # 127.0.0.1:8188. From the mochi-guest QEMU/SLIRP makes this reachable as
 # 10.0.2.2:8188 with no extra firewall work.
 #

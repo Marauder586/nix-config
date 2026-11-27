@@ -17,14 +17,15 @@
         "pi-subagents": "pi-subagents",
         "rea-agents": "rea-agents",
         "rpiv-ask-user-question": "rpiv-ask-user-question",
-        "rpiv-config": "rpiv-config"
+        "rpiv-config": "rpiv-config",
+        "superpowers": "superpowers"
       },
       "locked": {
-        "lastModified": 1795465532,
-        "narHash": "sha256-xG3JXYdKhLUIIdnhmfUrIh98yh3e7CQ5hKDmMqUHcOc=",
+        "lastModified": 1795789402,
+        "narHash": "sha256-RoICacd91nEvmyF3ZhAej2F/yEHZKQC0YjnN5UobwV0=",
         "owner": "Marauder586",
         "repo": "agent-harness",
-        "rev": "6252e5ddd6f1799fdcd4df38fbd06e34f7bc5596",
+        "rev": "d03ffd953b1432f38621a75496e02f8c2469c209",
         "type": "github"
       },
       "original": {
@@ -821,6 +822,23 @@
         "owner": "danth",
         "ref": "release-26.05",
         "repo": "stylix",
+        "type": "github"
+      }
+    },
+    "superpowers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793744227,
+        "narHash": "sha256-rP5YsyGuPd9YSW/Fj3aukrq1bLuV+nwwQMK4JaZQgkI=",
+        "owner": "obra",
+        "repo": "superpowers",
+        "rev": "22f0b463e7a5e579904dd6211a520321035526f7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "obra",
+        "ref": "v7.0.2",
+        "repo": "superpowers",
         "type": "github"
       }
     },

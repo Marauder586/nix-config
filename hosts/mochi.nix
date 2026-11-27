@@ -18,7 +18,6 @@
       config.flake.modules.nixos.audio
       config.flake.modules.nixos.virtualization
       config.flake.modules.nixos.gaming
-      config.flake.modules.nixos.ai
       config.flake.modules.nixos.comfyui
       config.flake.modules.nixos.networking
 

@@ -80,6 +80,7 @@
 
       # Terminal multiplexer
       zellij
+      wl-clipboard
 
       # Nix tooling
       nix-output-monitor

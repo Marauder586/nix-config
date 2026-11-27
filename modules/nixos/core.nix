@@ -27,6 +27,7 @@
 
     # ── Minimal system packages ───────────────────────────────
     environment.systemPackages = with pkgs; [
+      podman-compose
       vim
       wget
     ];
