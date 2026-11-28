@@ -21,11 +21,11 @@
         "superpowers": "superpowers"
       },
       "locked": {
-        "lastModified": 1795789402,
-        "narHash": "sha256-RoICacd91nEvmyF3ZhAej2F/yEHZKQC0YjnN5UobwV0=",
+        "lastModified": 1795821949,
+        "narHash": "sha256-GBVgaoNdjqGEaFxZco2OU1rMA45bxQkOnirP5Yulhok=",
         "owner": "Marauder586",
         "repo": "agent-harness",
-        "rev": "d03ffd953b1432f38621a75496e02f8c2469c209",
+        "rev": "86af7e1fe2329aa6cd4aef23b1cd969ffd254b94",
         "type": "github"
       },
       "original": {
@@ -321,13 +321,13 @@
       "flake": false,
       "locked": {
         "lastModified": 499162500,
-        "narHash": "sha256-zuYTNIDn5XCuSnJjDKxpupjE440Hqw1YrPztLFDfA1s=",
+        "narHash": "sha256-mzputFqShlHiFx0BX5p5f6ml2AzZH290cUoMT5HwVBA=",
         "type": "tarball",
-        "url": "https://registry.npmjs.org/@vectorize-io/hindsight-coding-agents/-/hindsight-coding-agents-0.8.8.tgz"
+        "url": "https://registry.npmjs.org/@vectorize-io/hindsight-coding-agents/-/hindsight-coding-agents-0.9.0.tgz"
       },
       "original": {
         "type": "tarball",
-        "url": "https://registry.npmjs.org/@vectorize-io/hindsight-coding-agents/-/hindsight-coding-agents-0.8.8.tgz"
+        "url": "https://registry.npmjs.org/@vectorize-io/hindsight-coding-agents/-/hindsight-coding-agents-0.9.0.tgz"
       }
     },
     "home-manager": {
